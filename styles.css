@@ -1,0 +1,87 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url("assets/Montserrat-Regular.ttf")
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2rem;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0, 0.2);
+}
+
+.user-picture {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: solid 1px grey;
+}
+
+.notifications {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.user-navigation-icon {
+    height: 13px;
+    width: 13px;
+    cursor: pointer;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: 2rem;
+    font-family: Montserrat;
+    color: rgb(32, 32, 32);
+}
+
+.logo-icon {
+    height: 35px;
+    width: 35px; 
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-right: 2rem;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+}
+
+.header-right-section {
+    display: flex;
+    gap: 10rem;
+    align-items: center;
+}
+
+.add-book-btn  {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0.1rem 2rem;
+    border-radius: 24px;
+    border-color: rgb(31,174,35);
+    color: rgb(31,174,35);
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+span.btn {
+    font-size: 2rem;
+}
+
+.add-book-btn:hover {
+    color: white;
+    background-color: rgb(31,174,35);
+    cursor: pointer;
+}
