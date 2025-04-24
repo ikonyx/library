@@ -85,3 +85,39 @@ span.btn {
     background-color: rgb(31,174,35);
     cursor: pointer;
 }
+
+#main-content {
+    display: flex;
+    margin: 6rem;
+    gap: 6rem;
+    flex-wrap: wrap;
+}
+
+.bookCard {
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0 5px 15px 0 rgba(0,0,0, 0.2);
+}
+
+.bookCover {
+    margin: 0;
+    width: inherit;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.bookInfo {
+    padding:1rem;
+}
+
+.bookTitle {
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.bookAuthor,
+.bookPages {
+    margin-top: 0.8rem;
+    font-size: 1.1rem;
+    font-style: italic;
+}
