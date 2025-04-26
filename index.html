@@ -14,7 +14,7 @@
                 <h1>Libify</h1>
             </div>
             <div class="header-right-section">
-                <button class="add-book-btn"><span class="btn">+ </span>Add a New Book</button>
+                <button id="addBookBtn"><span class="btn">+ </span>Add a New Book</button>
                 <div class="user-info">
                     <img class="notifications" src="assets/notification.png">
                     <img class="user-picture" src="assets/reading.png">
@@ -24,6 +24,51 @@
             </div>
         </div>
         <div id="main-content"></div>
+            <dialog id="bookInfoDialog">
+                <form>
+                    <legend>Add Book Information:</legend>
+                    <ul>
+                        <li>
+                            <label for="title">Title* </label>
+                            <input type="text" id="title" name="title" 
+                            required>
+                        </li>
+
+                        <li>
+                            <label for="author">Author* </label>
+                            <input type="text" id="author" name="author" 
+                            required>
+                        </li>
+
+                        <li>
+                            <label for="pages">Number of Pages* </label>
+                            <input type="number" id="pages" name="pages" 
+                            required>
+                        </li>
+
+                        <li>
+                            <label for="read-status">Read Status* </label>
+                            <select id="read-status">
+                                <option>Read</option>
+                                <option>Not Read</option>
+                            </select>
+                        </li>
+
+                        <li>
+                            <button id="addCoverBtn" onclick="document.querySelector('#addBookCover').click()">
+                            <span id="btnContent">Upload Book cover
+                            <svg class="uploadIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9,16V10H5L12,3L19,10H15V16H9M5,20V18H19V20H5Z" fill="white"/></svg>
+                            </span></button>
+                            <input type="file" id="addBookCover" style="display:none" name="bookCover" accept="image/*">
+                        </li>
+
+                        <div class="formBtns">
+                            <button id="cancelBtn" formmethod="dialog">Cancel</button>
+                            <button id="confirmBtn" value="default">Confirm</button>
+                        </div>
+                </form>
+            </dialog>
+
         <footer></footer>
     </div>
  <script src="script.js" defer></script>   

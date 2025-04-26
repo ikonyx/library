@@ -18,82 +18,113 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 const mainContent = document.querySelector('#main-content');
-addBookToLibrary("Surely You're Joking, Mr. Feynman!", "Richard Feynman", "350 pages", "read");
+addBookToLibrary("Surely You're Joking, Mr. Feynman!", "Richard Feynman", "350 pages", "Read");
 
-const readStatusBtn = document.createElement('button');
-const readStatusContainer = document.createElement('span');
-const buttonText = document.createElement("span");
-const readIconDiv = document.createElement('span');
-
-function displayBooks(book) {
+function displayBook(book) {
+    const readStatusBtn = document.createElement('button');
+    const readStatusContainer = document.createElement('span');
+    const buttonText = document.createElement("span");
+    const readIconDiv = document.createElement('span');
     
-    for (book of myLibrary) {
-        const bookCard = document.createElement('div');
-        bookCard.className = "bookCard";
+    const bookCard = document.createElement('div');
+    bookCard.className = "bookCard";
 
-        const bookCover = document.createElement('img');
-        bookCover.src = "assets/richard-fey.jpg";
-        bookCover.className = "bookCover";
+    const bookCover = document.createElement('img');
+    bookCover.src = "assets/richard-fey.jpg";
+    bookCover.className = "bookCover";
 
-        const bookInfo = document.createElement('div');
-        bookInfo.className = "bookInfo";
+    const bookInfo = document.createElement('div');
+    bookInfo.className = "bookInfo";
 
-        const bookTitle = document.createElement('div');
-        bookTitle.className = "bookTitle";
-        bookTitle.textContent = book.title;
+    const bookTitle = document.createElement('div');
+    bookTitle.className = "bookTitle";
+    bookTitle.textContent = book.title;
 
-        const bookAuthor = document.createElement('div');
-        bookAuthor.className = "bookAuthor";
-        bookAuthor.textContent = book.author;
+    const bookAuthor = document.createElement('div');
+    bookAuthor.className = "bookAuthor";
+    bookAuthor.textContent = book.author;
 
-        const bookPages = document.createElement('div');
-        bookPages.className = "bookPages";
-        bookPages.textContent = book.pages;
+    const bookPages = document.createElement('div');
+    bookPages.className = "bookPages";
+    bookPages.textContent = book.pages;
 
-        mainContent.appendChild(bookCard);
-        bookCard.appendChild(bookCover);
-        bookCard.appendChild(bookInfo)
-        bookInfo.appendChild(bookTitle);
-        bookInfo.appendChild(bookAuthor);
-        bookInfo.appendChild(bookPages);
+    mainContent.appendChild(bookCard);
+    bookCard.appendChild(bookCover);
+    bookCard.appendChild(bookInfo)
+    bookInfo.appendChild(bookTitle);
+    bookInfo.appendChild(bookAuthor);
+    bookInfo.appendChild(bookPages);
 
         
 
-        if (book.read === "read") {
-            
-            readStatusBtn.className = "readBtn";
-            buttonText.textContent = "Read";
-            readIconDiv.className = "readSvg";
-            const readIconCode = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.5,17L18.5,22L15,18.5L16.5,17L18.5,19L22,15.5L23.5,17M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,17C12.5,17 12.97,16.93 13.42,16.79C13.15,17.5 13,18.22 13,19V19.45L12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5C17,4.5 21.27,7.61 23,12C22.75,12.64 22.44,13.26 22.08,13.85C21.18,13.31 20.12,13 19,13C18.22,13 17.5,13.15 16.79,13.42C16.93,12.97 17,12.5 17,12A5,5 0 0,0 12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17Z" /></svg>'
-            
-            readIconDiv.innerHTML = readIconCode;
-            bookInfo.appendChild(readStatusBtn);
-            readStatusContainer.appendChild(readIconDiv);
-            readStatusContainer.appendChild(buttonText);
-            readStatusBtn.appendChild(readStatusContainer);
-            
-            
-        } else if (book.read === "Not read") {
+    if (book.read === "Read") {
+        
+        readStatusBtn.className = "readBtn";
+        buttonText.textContent = "Read";
+        readIconDiv.className = "readSvg";
+        const readIconCode = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.5,17L18.5,22L15,18.5L16.5,17L18.5,19L22,15.5L23.5,17M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,17C12.5,17 12.97,16.93 13.42,16.79C13.15,17.5 13,18.22 13,19V19.45L12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5C17,4.5 21.27,7.61 23,12C22.75,12.64 22.44,13.26 22.08,13.85C21.18,13.31 20.12,13 19,13C18.22,13 17.5,13.15 16.79,13.42C16.93,12.97 17,12.5 17,12A5,5 0 0,0 12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17Z" /></svg>'
+        
+        readIconDiv.innerHTML = readIconCode;
+        bookInfo.appendChild(readStatusBtn);
+        readStatusContainer.appendChild(readIconDiv);
+        readStatusContainer.appendChild(buttonText);
+        readStatusBtn.appendChild(readStatusContainer);
+        
+        
+    } else if (book.read === "Not Read") {
 
-            readStatusBtn.className = "notReadBtn";
-            buttonText.textContent = "Not read";
-            readIconDiv.className = "notReadSvg";
-            const readIconCode = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.54 16.88L20.41 19L22.54 21.12L21.12 22.54L19 20.41L16.88 22.54L15.47 21.12L17.59 19L15.47 16.88L16.88 15.47L19 17.59L21.12 15.47L22.54 16.88M12 9C10.34 9 9 10.34 9 12S10.34 15 12 15 15 13.66 15 12 13.66 9 12 9M12 17C9.24 17 7 14.76 7 12S9.24 7 12 7 17 9.24 17 12C17 12.5 16.9 13 16.77 13.43C17.46 13.16 18.21 13 19 13C20.12 13 21.17 13.32 22.07 13.85C22.43 13.27 22.74 12.65 23 12C21.27 7.61 17 4.5 12 4.5S2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C12.35 19.5 12.69 19.5 13.03 19.45C13 19.3 13 19.15 13 19C13 18.21 13.16 17.46 13.43 16.77C13 16.9 12.5 17 12 17Z" /></svg>'
-            
-            readIconDiv.innerHTML = readIconCode;
-            bookInfo.appendChild(readStatusBtn);
-            readStatusContainer.appendChild(readIconDiv);
-            readStatusContainer.appendChild(buttonText);
-            readStatusBtn.appendChild(readStatusContainer);
-        }
+        readStatusBtn.className = "notReadBtn";
+        buttonText.textContent = "Not read";
+        readIconDiv.className = "notReadSvg";
+        const readIconCode = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.54 16.88L20.41 19L22.54 21.12L21.12 22.54L19 20.41L16.88 22.54L15.47 21.12L17.59 19L15.47 16.88L16.88 15.47L19 17.59L21.12 15.47L22.54 16.88M12 9C10.34 9 9 10.34 9 12S10.34 15 12 15 15 13.66 15 12 13.66 9 12 9M12 17C9.24 17 7 14.76 7 12S9.24 7 12 7 17 9.24 17 12C17 12.5 16.9 13 16.77 13.43C17.46 13.16 18.21 13 19 13C20.12 13 21.17 13.32 22.07 13.85C22.43 13.27 22.74 12.65 23 12C21.27 7.61 17 4.5 12 4.5S2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C12.35 19.5 12.69 19.5 13.03 19.45C13 19.3 13 19.15 13 19C13 18.21 13.16 17.46 13.43 16.77C13 16.9 12.5 17 12 17Z" /></svg>'
+        
+        readIconDiv.innerHTML = readIconCode;
+        bookInfo.appendChild(readStatusBtn);
+        readStatusContainer.appendChild(readIconDiv);
+        readStatusContainer.appendChild(buttonText);
+        readStatusBtn.appendChild(readStatusContainer);
     }
-}
-
-displayBooks();
-
-function changeReadStatus() {
     
 }
 
-readStatusBtn.addEventListener('click', changeReadStatus);
+function displayAllBooks() {
+    for (let book of myLibrary) {
+        displayBook(book);
+    }
+}
 
+displayAllBooks();
+
+function addBook() {
+    const bookInfoDialog = document.querySelector("#bookInfoDialog");
+    bookInfoDialog.showModal();
+}
+
+const addBookBtn = document.querySelector('#addBookBtn');
+addBookBtn.addEventListener('click', addBook);
+
+const confirmBtn = document.querySelector("#confirmBtn");
+const title = document.querySelector("#title");
+const author = document.querySelector("#author");
+const pages = document.querySelector("#pages");
+const readStatus = document.querySelector("#read-status");
+const bookCover = document.querySelector("#bookCover");
+
+confirmBtn.addEventListener("click", (event) => {
+    event.preventDefault(); 
+    addBookToLibrary(title.value, author.value, pages.value, readStatus.value);
+    bookInfoDialog.close(displayBook(myLibrary[myLibrary.length - 1]));
+  });
+
+addCoverBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+});
+
+const cancelBtn = document.querySelector("#cancelBtn");
+cancelBtn.addEventListener("click", e => {
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    readStatus.value = "Read";
+    bookInfoDialog.close()
+});
