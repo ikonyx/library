@@ -121,3 +121,56 @@ span.btn {
     font-size: 1.1rem;
     font-style: italic;
 }
+
+.readSvg > svg {
+    height: 28px;
+    width: 28px;
+    fill: rgb(31,174,35);
+}
+
+.notReadSvg > svg {
+    height: 28px;
+    width: 28px;
+    fill: orangered;
+}
+
+button > span {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.readBtn,
+.notReadBtn {
+    margin-top: 1.7rem;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 0.05rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.readBtn {
+    color: rgb(31,174,35);
+    border-color: rgb(31,174,35);
+}
+
+.notReadBtn {
+    color: orangered;
+    border-color: orangered;
+}
+
+.readBtn:hover {
+    background-color: rgb(31,174,35);
+    color: white;
+}
+
+.notReadBtn:hover {
+    background-color: orangered;
+    color: white;
+}
+
+.readBtn:hover svg,
+.notReadBtn:hover svg {
+    fill:white !important;
+}
