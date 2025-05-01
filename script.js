@@ -1,7 +1,7 @@
 const myLibrary = [];
 
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, cover) {
     if (!new.target) {
         throw Error("You must use the 'new' operator to call the constructor");
     }
@@ -10,15 +10,16 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.cover = cover;
 }
 
-function addBookToLibrary(title, author, pages, read) {
-    let newBook = new Book(title, author, pages, read);
+function addBookToLibrary(title, author, pages, read, cover) {
+    let newBook = new Book(title, author, pages, read, cover);
     myLibrary.push(newBook);
 }
 
 const mainContent = document.querySelector('#main-content');
-addBookToLibrary("Surely You're Joking, Mr. Feynman!", "Richard Feynman", "350 pages", "Read");
+addBookToLibrary("Surely You're Joking, Mr. Feynman!", "Richard Feynman", "350 pages", "Read", "assets/richard-fey.jpg");
 
 function displayBook(book) {
     const readStatusBtn = document.createElement('button');
@@ -30,7 +31,7 @@ function displayBook(book) {
     bookCard.className = "bookCard";
 
     const bookCover = document.createElement('img');
-    bookCover.src = "assets/richard-fey.jpg";
+    bookCover.src = book.cover;
     bookCover.className = "bookCover";
 
     const bookInfo = document.createElement('div');
@@ -103,28 +104,32 @@ function addBook() {
 const addBookBtn = document.querySelector('#addBookBtn');
 addBookBtn.addEventListener('click', addBook);
 
-const confirmBtn = document.querySelector("#confirmBtn");
-const title = document.querySelector("#title");
-const author = document.querySelector("#author");
-const pages = document.querySelector("#pages");
-const readStatus = document.querySelector("#read-status");
-const bookCover = document.querySelector("#bookCover");
 
-confirmBtn.addEventListener("click", (event) => {
-    event.preventDefault(); 
-    addBookToLibrary(title.value, author.value, pages.value, readStatus.value);
-    bookInfoDialog.close(displayBook(myLibrary[myLibrary.length - 1]));
-  });
 
-addCoverBtn.addEventListener("click", (event) => {
+const form = document.querySelector("#form");
+const uploadCover = document.querySelector("#addBookCover");
+
+form.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    const title = document.querySelector("#title").value;
+    const author = document.querySelector("#author").value;
+    const pages = document.querySelector("#pages").value;
+    const readStatus = document.querySelector("#read-status").value;  
+    const coverImg = uploadCover.files[0];
+
+    if (title && author && pages && readStatus && coverImg) {
+    const coverUrl = URL.createObjectURL(coverImg);
+    
+    addBookToLibrary(title, author, pages, readStatus, coverUrl);
+    bookInfoDialog.close(displayBook(myLibrary[myLibrary.length - 1]));
+
+    form.reset();
+    }
 });
 
 const cancelBtn = document.querySelector("#cancelBtn");
 cancelBtn.addEventListener("click", e => {
-    title.value = "";
-    author.value = "";
-    pages.value = "";
-    readStatus.value = "Read";
-    bookInfoDialog.close()
+    form.reset();
+    bookInfoDialog.close();
 });
