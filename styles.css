@@ -136,14 +136,29 @@ span.btn {
     fill: orangered;
 }
 
+.removeSvg > svg {
+    height: 25px;
+    width: 25px;
+    fill: rgb(153, 5, 5);
+}
+
+.cardBtns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    
+}
+
 button > span {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
+    gap: 0.9rem;
 }
 
 .readBtn,
-.notReadBtn {
+.notReadBtn,
+.removeBtn {
     margin-top: 1.7rem;
     font-size: 1rem;
     font-weight: 900;
@@ -162,6 +177,11 @@ button > span {
     border-color: orangered;
 }
 
+.removeBtn {
+    color: rgb(153, 5, 5);
+    border-color: rgb(153, 5, 5);
+}
+
 .readBtn:hover {
     background-color: rgb(31,174,35);
     color: white;
@@ -172,8 +192,14 @@ button > span {
     color: white;
 }
 
+.removeBtn:hover {
+    background-color: rgb(153, 5, 5);
+    color: white;
+}
+
 .readBtn:hover svg,
-.notReadBtn:hover svg {
+.notReadBtn:hover svg,
+.removeBtn:hover svg {
     fill:white !important;
 }
 
