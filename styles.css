@@ -124,29 +124,29 @@ span.btn {
     font-style: italic;
 }
 
+.readSvg > svg,
+.notReadSvg > svg,
+.removeSvg > svg {
+    height: 25px;
+    width: 25px;
+}
+
 .readSvg > svg {
-    height: 28px;
-    width: 28px;
     fill: rgb(31,174,35);
 }
 
 .notReadSvg > svg {
-    height: 28px;
-    width: 28px;
     fill: orangered;
 }
 
 .removeSvg > svg {
-    height: 25px;
-    width: 25px;
     fill: rgb(153, 5, 5);
 }
 
-.cardBtns {
+.btnsWrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    
 }
 
 button > span {
@@ -172,12 +172,18 @@ button > span {
     border-color: rgb(31,174,35);
 }
 
+.readBtn,
+.notReadBtn {
+    grid-row: 1/2;
+}
+
 .notReadBtn {
     color: orangered;
     border-color: orangered;
 }
 
 .removeBtn {
+    grid-column: 2/3;
     color: rgb(153, 5, 5);
     border-color: rgb(153, 5, 5);
 }

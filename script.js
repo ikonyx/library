@@ -26,7 +26,7 @@ addBookToLibrary("Surely You're Joking, Mr. Feynman!", "Richard Feynman", "350 p
 
 function displayBook(book) {
     const buttons = document.createElement('div');
-    buttons.className = "cardBtns";
+    buttons.className = "btnsWrapper";
     const readStatusBtn = document.createElement('button');
     const readStatusContainer = document.createElement('span');
     const buttonText = document.createElement("span");
@@ -64,7 +64,15 @@ function displayBook(book) {
         
 
     if (book.read === "Read") {
+        toggleToRead();
         
+        
+    } else if (book.read === "Not Read") {
+        toggleToNotRead();
+        
+    }
+
+    function toggleToRead() {
         readStatusBtn.className = "readBtn";
         buttonText.textContent = "Read";
         readIconDiv.className = "readSvg";
@@ -75,10 +83,9 @@ function displayBook(book) {
         readStatusContainer.appendChild(readIconDiv);
         readStatusContainer.appendChild(buttonText);
         readStatusBtn.appendChild(readStatusContainer);
-        
-        
-    } else if (book.read === "Not Read") {
+    }
 
+    function toggleToNotRead() {
         readStatusBtn.className = "notReadBtn";
         buttonText.textContent = "Not read";
         readIconDiv.className = "notReadSvg";
@@ -110,12 +117,7 @@ function displayBook(book) {
     removeBtnContainer.appendChild(removeIconDiv);
     removeBtn.appendChild(removeBtnContainer);
     
-    const removeBtns = document.querySelectorAll(".removeBtn")
-
-    removeBtns.forEach((btn) => {
-        btn.addEventListener("click", removeBook);
-           
-    });
+    removeBtn.addEventListener("click", removeBook);
 
     function removeBook(event) {
         event.stopImmediatePropagation();
@@ -127,6 +129,18 @@ function displayBook(book) {
         }
         
         bookCard.remove();
+    }
+
+    readStatusBtn.addEventListener("click", toggleReadStatus);
+
+    function toggleReadStatus() {
+        if (book.read === "Read") {
+            book.read = "Not Read";
+            toggleToNotRead();
+        } else {
+            book.read = "Read";
+            toggleToRead();
+        }
     }
 }
 
