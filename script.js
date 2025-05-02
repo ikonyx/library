@@ -21,7 +21,7 @@ function addBookToLibrary(title, author, pages, read, cover, id) {
 }
 
 const mainContent = document.querySelector('#main-content');
-addBookToLibrary("Surely You're Joking, Mr. Feynman!", "Richard Feynman", "350 pages", "Read", "assets/richard-fey.jpg", id);
+addBookToLibrary("Surely You're Joking, Mr. Feynman!", "Richard Feynman", "350", "Read", "assets/richard-fey.jpg", id);
 
 
 function displayBook(book) {
@@ -45,14 +45,16 @@ function displayBook(book) {
     const bookTitle = document.createElement('div');
     bookTitle.className = "bookTitle";
     bookTitle.textContent = book.title;
+    bookTitle.style.textTransform = "capitalize";
 
     const bookAuthor = document.createElement('div');
     bookAuthor.className = "bookAuthor";
-    bookAuthor.textContent = book.author;
+    bookAuthor.textContent = `By ${book.author}`;
+    bookAuthor.style.textTransform = "capitalize";
 
     const bookPages = document.createElement('div');
     bookPages.className = "bookPages";
-    bookPages.textContent = book.pages;
+    bookPages.textContent = `${book.pages} pages`;
 
     mainContent.appendChild(bookCard);
     bookCard.appendChild(bookCover);
@@ -121,14 +123,17 @@ function displayBook(book) {
 
     function removeBook(event) {
         event.stopImmediatePropagation();
-
-        for (let i = myLibrary.length - 1; i >= 0; i--) {
-            if (myLibrary[i].id === this.dataset.indexNumber) {
-                myLibrary.splice(i, 1);   
+        if (confirm(`Are you sure you want to remove the book "${book.title}" from the library?`)) {
+            
+            for (let i = myLibrary.length - 1; i >= 0; i--) {
+                if (myLibrary[i].id === this.dataset.indexNumber) {
+                    myLibrary.splice(i, 1);   
+                }
             }
-        }
-        
-        bookCard.remove();
+            
+            bookCard.remove();
+
+          };  
     }
 
     readStatusBtn.addEventListener("click", toggleReadStatus);
@@ -185,7 +190,7 @@ form.addEventListener("submit", (event) => {
 });
 
 const cancelBtn = document.querySelector("#cancelBtn");
-cancelBtn.addEventListener("click", e => {
+cancelBtn.addEventListener("click", () => {
     form.reset();
     bookInfoDialog.close();
 });
