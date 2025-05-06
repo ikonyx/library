@@ -169,6 +169,28 @@ addBookBtn.addEventListener('click', addBook);
 
 const form = document.querySelector("#form");
 const uploadCover = document.querySelector("#addBookCover");
+const addCoverBtn = document.querySelector("#addCoverBtn");
+const coverName = document.querySelector("#fileLabel");
+
+uploadCover.addEventListener('change', () => {
+
+    const fullName = uploadCover.files[0].name;
+    const maxLength = 25; 
+
+    if (fullName.length <= maxLength) {
+        coverName.textContent = fullName;
+        return;
+    }
+
+    const dotIndex = fullName.lastIndexOf('.');
+    const charsBeforeExtension = 8; 
+
+    const end = fullName.substring(dotIndex - charsBeforeExtension, fullName.length);
+    const startLength = maxLength - end.length - 3; // -3 for "..."
+    const start = fullName.substring(0, startLength);
+
+    coverName.textContent = `${start}...${end}`;
+});
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -176,21 +198,24 @@ form.addEventListener("submit", (event) => {
     const title = document.querySelector("#title").value;
     const author = document.querySelector("#author").value;
     const pages = document.querySelector("#pages").value;
-    const readStatus = document.querySelector("#read-status").value;  
+    const readStatus = document.querySelector("#read-status").value;
     const coverImg = uploadCover.files[0];
 
     if (title && author && pages && readStatus && coverImg) {
     const coverUrl = URL.createObjectURL(coverImg);
     
-    addBookToLibrary(title, author, pages, readStatus, coverUrl);
+    addBookToLibrary(title, author, pages, readStatus, coverUrl, id);
     bookInfoDialog.close(displayBook(myLibrary[myLibrary.length - 1]));
 
     form.reset();
+    coverName.textContent = "The book cover is required"; 
     }
 });
 
 const cancelBtn = document.querySelector("#cancelBtn");
-cancelBtn.addEventListener("click", () => {
+cancelBtn.addEventListener("click", (event) => {
+    event.preventDefault();
     form.reset();
-    bookInfoDialog.close();
+    coverName.textContent = "The book cover is required";                 
+    bookInfoDialog.close();  
 });
