@@ -5,7 +5,14 @@
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Arial, Helvetica", sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 1/ 3;
+    position: relative;
+    height: 100vh;
 }
 
 .header {
@@ -14,6 +21,9 @@ body {
     align-items: center;
     padding-bottom: 2rem;
     box-shadow: 0 5px 15px 0 rgba(0,0,0, 0.2);
+    gap: 2rem;
+    max-height: 5rem;
+    z-index: 1;
 }
 
 .user-picture {
@@ -87,16 +97,21 @@ span.btn {
     cursor: pointer;
 }
 
+#content-footer {
+    display: grid;
+    overflow-y: auto;
+}
+
 #main-content {
     display: flex;
-    margin: 6rem;
+    padding: 6rem;
     gap: 6rem;
     flex-wrap: wrap;
 }
 
 .bookCard {
     border-radius: 10px;
-    width: 350px;
+    max-width: 350px;
     box-shadow: 0 5px 15px 0 rgba(0,0,0, 0.2);
 }
 
@@ -342,14 +357,69 @@ label {
 footer {
     display: flex;
     justify-content: center;
+    align-self: end;
+    grid-row-end: 3;
     padding: 1rem;
     box-shadow: 0 5px 15px 0 rgba(0,0,0, 0.2);
     gap: 0.8rem;
     font-size: 1rem;
     color: white;
-    background-color: rgb(0, 32, 10);
+    background-color: rgb(0, 0, 0);
 }
 
 a {
     color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 800px) {
+
+    .header-right-section {
+        gap: 3rem;
+    }
+
+    .logo {
+        margin-left: 1rem;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    .logo-icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    #main-content {
+        padding: 2rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #addBookBtn {
+        font-size: 0;
+        border-radius: 50%;
+        gap: 0.2rem;
+        padding-left: 0.4rem;
+        padding-right: 0.3rem;
+    }
+
+    #addBookBtn > span {
+        font-size: 1.5rem;
+        padding-left: 0.4rem;
+        padding-right: 0.3rem;
+    }
+
+    .user-info {
+        gap: 0;
+    }
+
+    .notifications {
+        padding-right: 0.9rem;
+    }
+
+    .user-info > span {
+        font-size: 0;
+    } 
 }

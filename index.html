@@ -23,54 +23,56 @@
                 </div>
             </div>
         </div>
-        <div id="main-content"></div>
-            <dialog id="bookInfoDialog">
-                <form id="form" novalidate>
-                    <legend>Add Book Information:</legend>
-                    <ul>
-                        <li>
-                            <label for="title">Title<span class="required-field"> *</span></label>
-                            <input type="text" id="title" name="title" 
-                            required>
-                        </li>
+        <div id="content-footer">
+            <div id="main-content">
+                <dialog id="bookInfoDialog">
+                    <form id="form" novalidate>
+                        <legend>Add Book Information:</legend>
+                        <ul>
+                            <li>
+                                <label for="title">Title<span class="required-field"> *</span></label>
+                                <input type="text" id="title" name="title" 
+                                required>
+                            </li>
 
-                        <li>
-                            <label for="author">Author<span class="required-field"> *</span></label>
-                            <input type="text" id="author" name="author" 
-                            required>
-                        </li>
+                            <li>
+                                <label for="author">Author<span class="required-field"> *</span></label>
+                                <input type="text" id="author" name="author" 
+                                required>
+                            </li>
 
-                        <li>
-                            <label for="pages">Number of Pages<span class="required-field"> *</span></label>
-                            <input type="number" id="pages" name="pages" 
-                            required>
-                        </li>
+                            <li>
+                                <label for="pages">Number of Pages<span class="required-field"> *</span></label>
+                                <input type="number" id="pages" name="pages" 
+                                required>
+                            </li>
 
-                        <li>
-                            <label for="read-status">Read Status<span class="required-field"> *</span></label>
-                            <select id="read-status">
-                                <option>Read</option>
-                                <option>Not Read</option>
-                            </select>
-                        </li>
+                            <li>
+                                <label for="read-status">Read Status<span class="required-field"> *</span></label>
+                                <select id="read-status">
+                                    <option>Read</option>
+                                    <option>Not Read</option>
+                                </select>
+                            </li>
 
-                        <li>
-                            <button id="addCoverBtn" onclick="document.querySelector('#addBookCover').click()">
-                            <span id="btnContent">Upload Book cover
-                            <svg class="uploadIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9,16V10H5L12,3L19,10H15V16H9M5,20V18H19V20H5Z" fill="white"/></svg>
-                            </span></button>
-                            <input type="file" id="addBookCover" style="display:none" name="bookCover" accept="image/*" required>
-                            <label id="fileLabel" for="addBookCover">The book cover is required</label>
-                        </li>
+                            <li>
+                                <button id="addCoverBtn" onclick="document.querySelector('#addBookCover').click()">
+                                <span id="btnContent">Upload Book cover
+                                <svg class="uploadIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9,16V10H5L12,3L19,10H15V16H9M5,20V18H19V20H5Z" fill="white"/></svg>
+                                </span></button>
+                                <input type="file" id="addBookCover" style="display:none" name="bookCover" accept="image/*" required>
+                                <label id="fileLabel" for="addBookCover">The book cover is required</label>
+                            </li>
 
-                        <div class="formBtns">
-                            <button id="cancelBtn" formmethod="dialog">Cancel</button>
-                            <button id="confirmBtn" value="default" type="submit">Confirm</button>
-                        </div>
-                </form>
-            </dialog>
-
-        <footer>© 2025 <a href="https://github.com/ikonyx"> Ikonyx</a></footer>
+                            <div class="formBtns">
+                                <button id="cancelBtn" formmethod="dialog">Cancel</button>
+                                <button id="confirmBtn" value="default" type="submit">Confirm</button>
+                            </div>
+                    </form>
+                </dialog>
+            </div>
+            <footer>© 2025 <a href="https://github.com/ikonyx"> Ikonyx</a></footer>
+        </div>
     </div>
  <script src="script.js" defer></script>   
 </body>
