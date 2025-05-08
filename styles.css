@@ -105,13 +105,13 @@ span.btn {
 #main-content {
     display: flex;
     padding: 6rem;
-    gap: 6rem;
+    gap: 5rem;
     flex-wrap: wrap;
 }
 
 .bookCard {
     border-radius: 10px;
-    max-width: 350px;
+    width: 350px;
     box-shadow: 0 5px 15px 0 rgba(0,0,0, 0.2);
 }
 

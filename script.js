@@ -22,6 +22,9 @@ function addBookToLibrary(title, author, pages, read, cover, id) {
 
 const mainContent = document.querySelector('#main-content');
 addBookToLibrary("Surely You're Joking, Mr. Feynman!", "Richard Feynman", "350", "Read", "assets/richard-fey.jpg", id);
+addBookToLibrary("The Culture Map", "Erin Meyer", "288", "Not Read", "assets/culture-map.jpg", id);
+addBookToLibrary("Man’s Search for Meaning", "Viktor E. Frankl", "188", "Read", "assets/viktor-frankl.jpg", id);
+addBookToLibrary("Thinking, Fast and Slow", "Daniel Kahneman", "499", "Read", "assets/thinking-fast-slow.jpg", id);
 
 
 function displayBook(book) {
