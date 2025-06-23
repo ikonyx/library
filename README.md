@@ -15,3 +15,7 @@ A lightweight Library Management App built using only HTML, CSS, and Vanilla Jav
 ## 🔗 Live Demo
 
 👉 [View on GitHub Pages](https://ikonyx.github.io/library/)
+
+## 🖼️ Assets
+
+Icons created by Freepik - [Flaticon](https://www.flaticon.com/)
