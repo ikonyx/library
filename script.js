@@ -2,10 +2,13 @@ const myLibrary = [];
 let id;
 
 
-function Book(title, author, pages, read, cover, id) {
+class Book {
+    constructor(title, author, pages, read, cover, id) {
+        
     if (!new.target) {
         throw Error("You must use the 'new' operator to call the constructor");
     }
+
     id = self.crypto.randomUUID();
     this.title = title;
     this.author = author;
@@ -13,6 +16,8 @@ function Book(title, author, pages, read, cover, id) {
     this.read = read;
     this.cover = cover;
     this.id = id
+
+    }
 }
 
 function addBookToLibrary(title, author, pages, read, cover, id) {
