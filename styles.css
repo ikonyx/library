@@ -161,7 +161,7 @@ span.btn {
 
 .btnsWrapper {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
 }
 
@@ -395,6 +395,14 @@ a {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .bookCard {
+        width: 300px;
+    }
+
+    .bookCover {
+        height: 462px;
     }
 
     #addBookBtn {
